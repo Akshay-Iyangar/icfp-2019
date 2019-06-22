@@ -98,7 +98,16 @@ enum class Orientation {
     Up, Down, Left, Right
 }
 
-data class Solution(val problemId: ProblemId, val actions: List<Actions>)
+data class GameState(
+    val gameBoard: Array<Short>, //TODO: Martin will replace with GameBoard Builder
+    val robotStateList: List<RobotState>,
+    val teleportDestination: List<Point>,
+    val unusedBoosters: List<Boosters>
+)
+
+
+data class Solution(val problemId: ProblemId,
+                    val actions: List<Actions>)
 
 fun solve(problem: Problem): Solution {
     return Solution(problem.problemId, listOf())
